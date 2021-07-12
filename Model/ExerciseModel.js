@@ -1,5 +1,7 @@
+//external import
 const mongoose=require('mongoose')
 
+//create  exerciseSchema
 const exerciseSchema=mongoose.Schema({
 
     userName:{
@@ -28,7 +30,9 @@ const exerciseSchema=mongoose.Schema({
     timestamps:true
 })
 
+
+//create db collection name
 const Exercise= new mongoose.model("Exercise", exerciseSchema)
 
 
-module.exports=Exercise
+module.exports=Exercise;

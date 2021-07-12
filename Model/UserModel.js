@@ -1,6 +1,7 @@
+//external import
 const mongoose=require('mongoose')
 
-
+//create userSchema
 const UserSchema=mongoose.Schema({
 
     userName:{
@@ -16,6 +17,7 @@ const UserSchema=mongoose.Schema({
     timestamps:true
 })
 
+//create db collection
 const User=new mongoose.model("User",UserSchema)
 
 module.exports=User;

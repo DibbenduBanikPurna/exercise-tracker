@@ -7,12 +7,14 @@ const mongoose=require('mongoose')
 
 
 //internal import
-const userRouter = require('./Router/User')
-const exerciseRouter = require('./Router/Exercise')
+const userRouter = require('./Router/UserRouter')
+const exerciseRouter = require('./Router/ExerciseRouter')
 
 
 //create web server
 const app=express()
+
+//env call
 dotenv.config()
 
 //database connection
@@ -34,18 +36,24 @@ app.use('/user', userRouter)
 app.use('/exercise',exerciseRouter)
 
 
+//server root page
 app.get('/',(req,res)=>{
     res.send("welcome to my server")
 })
 
 
+
+//error handelling middleware
 app.use((err,req,res,next)=>{
     console.log(err.message)
     res.status(500).send(err.message)
 
 })
 
-//server port
+
+
+
+//server starting port
 
 app.listen(process.env.PORT,()=>{
     console.log(`i am listen at ${process.env.PORT}`)
